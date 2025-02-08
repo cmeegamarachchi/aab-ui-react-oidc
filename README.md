@@ -1,5 +1,5 @@
-# aab-ui-react
-appsolve application framework react starter kit
+# aab-ui-react-oidc
+appsolve application framework react starter kit with open-id-connect authentication support
 
 `aab-ui-react` is a React.js-based UI starter kit built using Vite. It incorporates **Tailwind CSS** and **ShadCN** for modern, responsive styling and includes features such as pre-built layouts with side navigation and configuration management capabilities.
 
