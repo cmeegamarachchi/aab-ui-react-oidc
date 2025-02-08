@@ -1,0 +1,30 @@
+{
+   "name":"Appsolve application blocks react starter kit (aab-ui-react)",
+   "build":{
+      "dockerfile":"Dockerfile"
+   },
+   "forwardPorts":[5179],
+   "customizations":{
+      "vscode":{
+         "settings":{
+            "prettier.printWidth":120,
+            "terminal.integrated.shell.linux":"/bin/bash",
+            "editor.defaultFormatter":"esbenp.prettier-vscode",
+            "[typescript]":{
+               "editor.defaultFormatter":"esbenp.prettier-vscode"
+            },
+            "[javascript]":{
+               "editor.defaultFormatter":"esbenp.prettier-vscode"
+            },
+            "workbench.iconTheme":"material-icon-theme"
+         },
+         "extensions":[
+            "PKief.material-icon-theme",
+            "esbenp.prettier-vscode",
+            "ms-vscode-remote.remote-containers",
+            "GitHub.copilot",
+            "dsznajder.es7-react-js-snippets"
+         ]
+      }
+   }
+}
