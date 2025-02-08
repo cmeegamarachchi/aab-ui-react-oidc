@@ -1,13 +1,21 @@
 # aab-ui-react-oidc
 appsolve application framework react starter kit with open-id-connect authentication support
 
-`aab-ui-react` is a React.js-based UI starter kit built using Vite. It incorporates **Tailwind CSS** and **ShadCN** for modern, responsive styling and includes features such as pre-built layouts with side navigation and configuration management capabilities.
-
-
 ## Getting Started
-`aab-ui-react` offers Visual Studio DevContainer support, enabling seamless setup in containerized environments. To get started:
+`aab-ui-react-oidc` offers Visual Studio DevContainer support, enabling seamless setup in containerized environments. To get started:
 1. Clone the repository using a DevContainer or directly to your working directory.
-2. Run the following commands:  
+2. Configure your IDP paramaters via environment variables. Following environment variables are to be set as a minimum
+    * `VITE_OIDC_AUTHORITY` : Sets authority. 
+        * For Entra, `"https://login.microsoftonline.com/[TENENT_ID]/v2.0"`. 
+        * For cognito `"https://cognito-idp.ap-southeast-2.amazonaws.com/[USER_POOL_ID]"`
+    * `VITE_OIDC_CLIENT_ID`
+        * For Entra, `"[APP_CLIENT_ID]"`. 
+        * For cognito `"[APP_CLIENT_ID]"`    
+    * `VITE_OIDC_REDIRECT_URI`: Apps redirect url. Generally this would be something like `"http://localhost:8000"`    
+    * `VITE_OIDC_SCOPE`: Define a list of application scopes. For entra, remember to add `"[APP_CLIENT_ID]/.default"`
+        * For Entra, `"openid profile email fa966437-8284-4257-b497-4d30a7e7e1f1/.default`. 
+        * For cognito `"email openid phone"`    
+3. Run following commands:  
     * `npm run dev` to start the application in development mode
     * `npm run build` to create a production-ready build of the application
 

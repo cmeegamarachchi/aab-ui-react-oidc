@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import { useAuth } from "react-oidc-context";
+
 import { useConfiguration } from "@/providers/ConfigurationProvider";
 
 interface HttpOptions {
@@ -14,8 +16,12 @@ const useHttp = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { configuration } = useConfiguration();
+  const auth = useAuth();
 
-  const axiosInstance = useMemo(() => axios.create({ baseURL: configuration.apiBaseUrl }),[configuration.apiBaseUrl]);
+  const axiosInstance = useMemo(() => axios.create({ 
+    baseURL: configuration.apiBaseUrl, headers: {
+    Authorization: `Bearer ${auth.user?.id_token}`,
+  } }),[configuration.apiBaseUrl, auth.user?.id_token]);
 
   let controller = new AbortController();
   useEffect(() => {
