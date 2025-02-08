@@ -5,8 +5,8 @@ import { Label } from "@/components/ui/label"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Contact } from "./models"
 import { PencilIcon } from "lucide-react"
+import { useConfiguration } from "@/providers/ConfigurationProvider"
 
-const ITEMS_PER_PAGE = 15
 
 interface ContactsDataGridProps {
     contacts: Contact[]
@@ -16,6 +16,9 @@ const ContactsDataGrid:React.FC<ContactsDataGridProps> = ({contacts}) => {
   const [searchTerm, setSearchTerm] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const [filteredContacts, setFilteredContacts] = useState<Contact[]>([])
+  const {configuration} = useConfiguration()
+
+  const ITEMS_PER_PAGE = configuration?.numberOfItemsPerPage ?? 15
 
   useEffect(() => {
     const filtered = contacts.filter((contact) =>

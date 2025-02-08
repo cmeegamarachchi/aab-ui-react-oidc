@@ -20,3 +20,6 @@ To explore layouts in detail, run the Storybook tool provided with the project.
 
 ## Providers
 The `ConfigurationProvider` enables efficient application-wide configuration management. It works seamlessly with the useConfiguration hook, ensuring updated configurations are automatically persisted to local storage for a smooth user experience.
+
+## Hooks
+`useHttp` provides various methods and props to interact with http endpoints. This hook can be direcly used in components or in other hooks  

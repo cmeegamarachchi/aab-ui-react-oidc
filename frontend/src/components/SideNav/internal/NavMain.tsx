@@ -19,7 +19,7 @@ const NavMain = () => {
   const { data } = useSideNavContext();
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Appsolve Application Framework</SidebarGroupLabel>
+      <SidebarGroupLabel>Appsolve Application Blocks</SidebarGroupLabel>
       <SidebarMenu>
         {data.navMain.map((item) => (
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
