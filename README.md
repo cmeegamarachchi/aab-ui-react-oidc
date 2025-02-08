@@ -7,7 +7,7 @@ appsolve application framework react starter kit with open-id-connect authentica
 2. Configure your IDP paramaters via environment variables. Following environment variables are to be set as a minimum
     * `VITE_OIDC_AUTHORITY` : Sets authority. 
         * For Entra, `"https://login.microsoftonline.com/[TENENT_ID]/v2.0"`. 
-        * For cognito `"https://cognito-idp.ap-southeast-2.amazonaws.com/[USER_POOL_ID]"`
+        * For cognito `"https://cognito-idp.[REGION].amazonaws.com/[USER_POOL_ID]"`
     * `VITE_OIDC_CLIENT_ID`
         * For Entra, `"[APP_CLIENT_ID]"`. 
         * For cognito `"[APP_CLIENT_ID]"`    
