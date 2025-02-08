@@ -1,5 +1,5 @@
 {
-   "name":"Appsolve application blocks react starter kit (aab-ui-react)",
+   "name":"Appsolve application blocks react starter kit with open-id-connect support",
    "build":{
       "dockerfile":"Dockerfile"
    },
