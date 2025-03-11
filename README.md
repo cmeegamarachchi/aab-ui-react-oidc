@@ -1,5 +1,7 @@
-# aab-ui-react-oidc
-appsolve application framework react starter kit with open-id-connect authentication support
+# Appsolve application framework react starter kit with open-id-connect authentication support
+
+> [!WARNING]  
+> Current implementation is using `id-token` for api authentication, which is not a good practice. This will be fixed in an up comming release
 
 ## Getting Started
 `aab-ui-react-oidc` offers Visual Studio DevContainer support, enabling seamless setup in containerized environments. To get started:
