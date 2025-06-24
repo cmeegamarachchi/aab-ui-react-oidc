@@ -18,10 +18,12 @@ const useHttp = () => {
   const { configuration } = useConfiguration();
   const auth = useAuth();
 
+  const authEnabled = import.meta.env.VITE_AUTH_ENABLED !== "false";
+
   const axiosInstance = useMemo(() => axios.create({ 
     baseURL: configuration.apiBaseUrl, headers: {
-    Authorization: `Bearer ${auth.user?.id_token}`,
-  } }),[configuration.apiBaseUrl, auth.user?.id_token]);
+    ...(authEnabled && auth.user?.id_token ? { Authorization: `Bearer ${auth.user?.id_token}` } : {}),
+  } }),[configuration.apiBaseUrl, auth?.user?.id_token, authEnabled]);
 
   let controller = new AbortController();
   useEffect(() => {
@@ -35,6 +37,7 @@ const useHttp = () => {
     controller = new AbortController();
 
     try {
+      setError("");
       const response = await axiosInstance.request({
         url,
         method,
@@ -52,6 +55,7 @@ const useHttp = () => {
         } else {
           setError("An unknown error occurred");
         }
+        throw error;
       }
     } finally {
       setLoading(false);

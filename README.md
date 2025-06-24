@@ -3,10 +3,15 @@
 > [!WARNING]  
 > Current implementation is using `id-token` for api authentication, which is not a good practice. This will be fixed in an up comming release
 
+## Environment variables
+
+Plesae create an `.env` file at project root and add following variables. This .env file will also get copied to container to be used at runtime
+
 ## Getting Started
 `aab-ui-react-oidc` offers Visual Studio DevContainer support, enabling seamless setup in containerized environments. To get started:
 1. Clone the repository using a DevContainer or directly to your working directory.
 2. Configure your IDP paramaters via environment variables. Following environment variables are to be set as a minimum
+    * `VITE_AUTH_ENABLED`: Set to `true` (default) to enable authentication in the frontend, or `false` to disable authentication (useful for development/testing; disables OIDC login and may allow mock or guest access).
     * `VITE_OIDC_AUTHORITY` : Sets authority. 
         * For Entra, `"https://login.microsoftonline.com/[TENENT_ID]/v2.0"`. 
         * For cognito `"https://cognito-idp.[REGION].amazonaws.com/[USER_POOL_ID]"`

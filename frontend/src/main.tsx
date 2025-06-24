@@ -7,21 +7,30 @@ import App from './App.tsx'
 
 
 const authConfig = {
-  authority: `${import.meta.env.VITE_OIDC_AUTHORITY}`,
-  client_id: `${import.meta.env.VITE_OIDC_CLIENT_ID}`,
-  redirect_uri: `${import.meta.env.VITE_OIDC_REDIRECT_URI}`,
+  authEnabled: import.meta.env.VITE_AUTH_ENABLED !== "false",
+  authority: `${import.meta.env.VITE_UI_OIDC_AUTHORITY}`,
+  client_id: `${import.meta.env.VITE_UI_OIDC_CLIENT_ID}`,
+  redirect_uri: `${import.meta.env.VITE_UI_OIDC_REDIRECT_URI}`,
   response_type: "code",
-  scope: `${import.meta.env.VITE_OIDC_SCOPE}`,
+  scope: `${import.meta.env.VITE_UI_OIDC_SCOPE}`,
   onSigninCallback: () => {
     window.location.replace('/');
     return Promise.resolve();
   },
 };
 
+const authEnabled = authConfig.authEnabled;
+
+console.dir("Auth config:", authConfig);
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider {...authConfig}>
+    {authEnabled ? (
+      <AuthProvider {...authConfig}>
+        <App />
+      </AuthProvider>
+    ) : (
       <App />
-    </AuthProvider>
+    )}
   </StrictMode>,
 )
