@@ -15,7 +15,9 @@ import { Toaster } from "./components/ui/toaster";
 import { ComponentType } from "react";
 
 export const AuthGuard = ({component}:{component: ComponentType})  => {
-  const Component = withAuthenticationRequired(component);
+  const authEnabled = import.meta.env.VITE_AUTH_ENABLED !== "false";
+  console.log(`Auth enabled: ${authEnabled}`);
+  const Component = authEnabled ? withAuthenticationRequired(component) : component;
   return <Component/>;
 }
 

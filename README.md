@@ -38,3 +38,11 @@ The `ConfigurationProvider` enables efficient application-wide configuration man
 
 ## Hooks
 `useHttp` provides various methods and props to interact with http endpoints. This hook can be direcly used in components or in other hooks  
+
+## Upgrade
+### Upgrade shad-cn components
+To upgrade shad-cn components run `update:shadcn` custom script
+```bash
+cd frontend
+npm run update:shadcn
+``` 
